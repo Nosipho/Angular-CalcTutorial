@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="personDetailApp">
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Nosipho AngularJS Tutorial</title>
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="app/js/Controller.js">  </script>
+    <link href= "http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="Container" ng-controller="contactController">
+
+    <h2>Add your Details Below</h2>
+    <form class="navbar-form" role="input">
+        <div class="form-group ">
+            <span class="label label-default">Name</span>
+            <input type="text" name="name" ng-model="newcontact.name"/><br/>
+            <span class="label label-default">Email</span>
+            <input type="text" name="email" ng-model="newcontact.email"/><br/>
+            <span class="label label-default">Phone</span>
+            <input type="text" name="phone" ng-model="newcontact.phone"/><br/>
+            <br/>
+            <input type="hidden" ng-model="newcontact.id" />
+            <button type="button" class="btn btn-default navbar-btn" ng-click="saveContact()">Save Info</button><br/>
+        </div>
+    </form><br/><br/>
+    <div class="panel panel-default">
+
+        <div class="panel-heading">Person Info</div>
+        <table class= "table table-bordered table-condensed">
+            <thead>
+            <tr>
+                <th class="navbar-text navbar-left" colspan="3" >Name</th>
+                <th class="navbar-text navbar-left" colspan="3">Email</th>
+                <th class="navbar-text navbar-left" colspan="3">Phone</th>
+                <th class="navbar-text navbar-left" colspan="3">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="contact in contacts">
+                <td class="navbar-text navbar-left" colspan="3"> {{ contact.name }}</td>
+                <td class="navbar-text navbar-left" colspan="3">{{ contact.email }}</td>
+                <td class="navbar-text navbar-left" colspan="3">{{ contact.phone }}</td>
+                <td class="navbar-text navbar-left" colspan="3">
+                    <a  href="#" ng-click="edit(contact.id)">edit</a> |
+                    <a href="#" ng-click="delete(contact.id)">delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+ </body>
+</html>

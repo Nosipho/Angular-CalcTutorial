@@ -1,0 +1,26 @@
+<html ng-app="">
+<head>
+    <title>AngularJS Calculator</title>
+
+<head>
+<body>
+
+<div ng-controller="Calculator">
+    <label>A:</label>
+    <input ng-model="firstNumber" type="text"> <br/>
+
+    <label>Operator:</label><br/>
+    <select ng-model="selectedOperator"
+            ng-options="operator for operator in operators"></select> <br/><br/>
+    <label>B:</label>
+    <input ng-model="secondNumber" type="text"> <br/>
+    <button ng-click="calculate()">Calculate</button> <br/>
+    Result: {{result}}
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js">
+</script>
+<script src="app/js/app.js"></script>
+
+</body>
+</html>
